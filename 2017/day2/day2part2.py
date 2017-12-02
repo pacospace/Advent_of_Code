@@ -1,4 +1,4 @@
-# Advent of Code - Day 2 (Part II5)
+# Advent of Code - Day 2 (Part II)
 import re
 
 file = open('spreadshit.txt')
