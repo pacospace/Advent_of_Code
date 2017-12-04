@@ -127,7 +127,7 @@ def create_puzzle(max_level):
     return puzzle_ref
 
 
-puzzle_input = 23
+puzzle_input = 9
 init = [[0, 1]]
 size_puzzle = find_puzzle(puzzle_input, init)
 max_size = len(size_puzzle)
