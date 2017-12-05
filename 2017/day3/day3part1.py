@@ -127,29 +127,33 @@ def create_puzzle(max_level):
     return puzzle_ref
 
 
-puzzle_input = 9
-init = [[0, 1]]
-size_puzzle = find_puzzle(puzzle_input, init)
-max_size = len(size_puzzle)
-print('Size of the puzzle is:', int(size_puzzle[max_size - 1][1]), ' x ', int(size_puzzle[max_size - 1][1]))
+def main():
+    puzzle_input = 23
+    init = [[0, 1]]
+    size_puzzle = find_puzzle(puzzle_input, init)
+    max_size = len(size_puzzle)
+    print('Size of the puzzle is:', int(size_puzzle[max_size - 1][1]), ' x ', int(size_puzzle[max_size - 1][1]))
 
+    puzzle_ref = create_puzzle(size_puzzle)
+    for element in puzzle_ref:
+        print()
+        print('Position of the spiral n.', element[0])
+        print(element)
 
-puzzle_ref = create_puzzle(size_puzzle)
-for element in puzzle_ref:
+    puzzle_matrix = np.zeros((int(size_puzzle[max_size - 1][1]),int(size_puzzle[max_size - 1][1])))
+    for element in puzzle_ref:
+        print(element)
+        puzzle_matrix[element[1]][element[2]] = element[0]
+    print(puzzle_matrix)
+
+    print(puzzle_ref[puzzle_input - 1])
+    move_x = abs(puzzle_ref[puzzle_input - 1][1] - puzzle_ref[1 - 1][1])
+    move_y = abs(puzzle_ref[puzzle_input - 1][2] - puzzle_ref[1 - 1][2])
     print()
-    print('Position of the spiral n.', element[0])
-    print(element)
+    print('Move along x:', move_x)
+    print('Move along y:', move_y)
+    print('Data from square # ', puzzle_input, ' # is carried in ----> ', move_x + move_y, 'steps')
 
-puzzle_matrix = np.zeros((int(size_puzzle[max_size - 1][1]),int(size_puzzle[max_size - 1][1])))
-for element in puzzle_ref:
-    print(element)
-    puzzle_matrix[element[1]][element[2]] = element[0]
-print(puzzle_matrix)
 
-print(puzzle_ref[puzzle_input - 1])
-move_x = abs(puzzle_ref[puzzle_input - 1][1] - puzzle_ref[1 - 1][1])
-move_y = abs(puzzle_ref[puzzle_input - 1][2] - puzzle_ref[1 - 1][2])
-print()
-print('Move along x:', move_x)
-print('Move along y:', move_y)
-print('Data from square # ', puzzle_input, ' # is carried in ----> ', move_x + move_y, 'steps')
+if __name__ == '__main__':
+    main()

@@ -1,18 +1,7 @@
 # Advent of Code - Day 1 (Part 1)
 
-captcha = open('captchaday1.txt')
 
-elements = captcha.read()
-
-list_elements = []
-element_n = 0
-for element in elements:
-    list_elements.append([int(element), element_n])
-    element_n += 1
-print('The list of elements is:\n', list_elements)
-
-
-def check_match(current_element, next_element):
+def check_match(current_element, next_element, list_matches):
     print()
     print('---------------------------')
     print('Element number:', current_element[1] + 1)
@@ -27,20 +16,36 @@ def check_match(current_element, next_element):
     return list_matches
 
 
-it = 0
-list_matches = []
-for element in list_elements:
-    if it < len(list_elements) - 1:
-        list_matches = check_match(list_elements[it], list_elements[it + 1])
+def main():
+    captcha = open('captchaday1.txt')
 
-    elif it == len(list_elements) - 1:
-        print()
-        print()
-        print('Last element of the list')
-        list_matches = check_match(list_elements[it], list_elements[0])
+    elements = captcha.read()
 
-    else:
-        break
-    it += 1
+    list_elements = []
+    element_n = 0
+    for element in elements:
+        list_elements.append([int(element), element_n])
+        element_n += 1
+    print('The list of elements is:\n', list_elements)
 
-print('\n\nThe solution of the chaptcha is:', sum(list_matches))
+    it = 0
+    list_matches = []
+    for element in list_elements:
+        if it < len(list_elements) - 1:
+            list_matches = check_match(list_elements[it], list_elements[it + 1], list_matches)
+
+        elif it == len(list_elements) - 1:
+            print()
+            print()
+            print('Last element of the list')
+            list_matches = check_match(list_elements[it], list_elements[0], list_matches)
+
+        else:
+            break
+        it += 1
+
+    print('\n\nThe solution of the chaptcha is:', sum(list_matches))
+
+
+if __name__ == '__main__':
+    main()

@@ -127,8 +127,6 @@ def create_puzzle(max_level, check_value):
             puzzle_ref, i, j = move_right(i, j, puzzle_ref4, num[counter: counter + t])
             counter = counter + t
 
-
-
             cont = 0
             print(puzzle_ref[np.square(max_level[step - 1][1]) - 1: np.square(max_level[step][1]) + 1])
             elements = puzzle_ref[np.square(max_level[step - 1][1]) - 1: np.square(max_level[step][1]) + 1]
@@ -188,32 +186,35 @@ def create_puzzle(max_level, check_value):
     return puzzle_ref, puzzle_matrix, result_value
 
 
-check_value = 277678
-puzzle_input = 50
-init = [[0, 1]]
-size_puzzle = find_puzzle(puzzle_input, init)
-max_size = len(size_puzzle)
-print('Size of the puzzle is:', int(size_puzzle[max_size - 1][1]), ' x ', int(size_puzzle[max_size - 1][1]))
+def main():
+    check_value = 277678
+    puzzle_input = 50
+    init = [[0, 1]]
+    size_puzzle = find_puzzle(puzzle_input, init)
+    max_size = len(size_puzzle)
+    print('Size of the puzzle is:', int(size_puzzle[max_size - 1][1]), ' x ', int(size_puzzle[max_size - 1][1]))
+    
+    puzzle_ref, puzzle_matrix, result_value = create_puzzle(size_puzzle, check_value)
+    print()
+
+    puzzle_mat = np.zeros((int(size_puzzle[max_size - 1][1]), int(size_puzzle[max_size - 1][1])))
+    for element in puzzle_ref:
+        puzzle_mat[element[1]][element[2]] = element[0]
+    print(puzzle_mat)
+
+    move_x = abs(puzzle_ref[puzzle_input - 1][1] - puzzle_ref[1 - 1][1])
+    move_y = abs(puzzle_ref[puzzle_input - 1][2] - puzzle_ref[1 - 1][2])
+    print()
+    print('Move along x:', move_x)
+    print('Move along y:', move_y)
+    print('Data from square # ', puzzle_input, ' # is carried in ----> ', move_x + move_y, 'steps')
+
+    print()
+    if result_value > 0:
+        print('The first value written that is larger than the check_value is:', result_value)
+    else:
+        print('NOT FOUND!!! You need to increase the puzzle_input')
 
 
-puzzle_ref, puzzle_matrix, result_value = create_puzzle(size_puzzle, check_value)
-print()
-
-puzzle_mat = np.zeros((int(size_puzzle[max_size - 1][1]), int(size_puzzle[max_size - 1][1])))
-for element in puzzle_ref:
-    puzzle_mat[element[1]][element[2]] = element[0]
-print(puzzle_mat)
-
-move_x = abs(puzzle_ref[puzzle_input - 1][1] - puzzle_ref[1 - 1][1])
-move_y = abs(puzzle_ref[puzzle_input - 1][2] - puzzle_ref[1 - 1][2])
-print()
-print('Move along x:', move_x)
-print('Move along y:', move_y)
-print('Data from square # ', puzzle_input, ' # is carried in ----> ', move_x + move_y, 'steps')
-
-
-print()
-if result_value > 0:
-    print('The first value written that is larger than the check_value is:', result_value)
-else:
-    print('NOT FOUND!!! You need to increase the puzzle_input')
+if __name__ == '__main__':
+    main()
