@@ -37,13 +37,13 @@ def main():
             # print("\nYou are still inside the maze, don't give up!!! Step n.----->", step, 'Out of:', max_step)
             pass
         else:
+            stop = time.time()
+            duration = stop - start
+            print('\nTime to find the solution is:', duration, ' [s]')
             print('\n\n**********************************************')
             print('Well Done!!! You are out of the maze')
             print('\nNumber of steps to exit the maze is ------>', step)
             print('**********************************************')
-            stop = time.time()
-            duration = stop - start
-            print('Time to find the solution is:', duration, ' [s]')
             break
 
 
