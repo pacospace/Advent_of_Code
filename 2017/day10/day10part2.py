@@ -37,11 +37,7 @@ def k_hash(d_h):
 
 def main():
 
-    circular_list = []
-    el = 0
-    while el < 256:
-        circular_list.append(el)
-        el += 1
+    circular_list = list(range(0, 256))
 
     input_lengths = []
 
@@ -51,10 +47,12 @@ def main():
     length_suffix = [17, 31, 73, 47, 23]
 
     input_lengths = input_lengths + length_suffix
+
     c = 0
     skip_size = 0
     max_round = 64
     round = 1
+
     while round <= max_round:
 
         n = 0
@@ -87,7 +85,6 @@ def main():
 
     sparse_hash = list(circular_list)
     dense_hash = d_hash(sparse_hash)
-
     knot_hash_r = k_hash(dense_hash)
 
     print(f'\nKnot Hash of the puzzle input is {knot_hash_r}')
