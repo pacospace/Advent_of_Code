@@ -11,13 +11,8 @@ def current_c(c_list, c_counter):
 
 
 def main():
-
-    circular_list = []
-    el = 0
-
-    while el < 256:
-        circular_list.append(el)
-        el += 1
+    
+    circular_list = list(range(0, 256))
 
     input_lengths = [197, 97, 204, 108, 1, 29, 5, 71, 0, 50, 2, 255, 248, 78, 254, 63]
 
