@@ -64,7 +64,7 @@ def main():
 
     file = open('r_day12.txt', 'w')
     file.write('The number of groups is --> {} \n'.format(len(collections)))
-    file.write('{:9} | {:9} | {:<15}  ---->  {}'.format('Group N', 'Group ID', 'N of programs', 'Groups'))
+    file.write('{:9} | {:9} | {:<15}  ---->  {}'.format('Group N', 'Group ID', 'N of programs', 'Programs'))
     file.write('\n-----------------------------------------------')
 
     for c in sorted(collection):
