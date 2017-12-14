@@ -87,7 +87,7 @@ def main():
 
     picos = 0
     start = time.time()
-    maxx = 100000
+    maxx = 5000000
     for picos in range(1, maxx):
         scanners_init_position, c = not_caught_config(scanners_init_position)
         if c == 0:

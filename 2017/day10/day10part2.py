@@ -44,9 +44,6 @@ def main():
     for each in "197,97,204,108,1,29,5,71,0,50,2,255,248,78,254,63":
         input_lengths.append(ord(each))
 
-    length_suffix = [17, 31, 73, 47, 23]
-
-    input_lengths = input_lengths + length_suffix
 
     c = 0
     skip_size = 0
