@@ -3,5 +3,4 @@ language: python
 python:
   - "3.6"
 script:
-  - python da1part1.py
-  - pytest
+  - python day1part1.py
