@@ -1,6 +1,6 @@
 language: python
+
 python:
   - "3.6"
 script:
-  - cd 2017/day01_Inverse_Captcha
-  - pytest
+  - python da1part1.py
