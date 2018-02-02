@@ -7,3 +7,5 @@ install:
 script:
    - python day1part1.py
    - python test.py -v
+   - cd 2017/day02_Corruption_Checksum/
+   - python day2part1.py	
