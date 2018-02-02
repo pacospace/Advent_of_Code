@@ -6,3 +6,4 @@ install:
    - pip install slate3k
 script:
    - python day1part1.py
+   - python test.py -v
