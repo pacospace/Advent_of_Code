@@ -2,8 +2,12 @@ language: python
 
 python:
    - "3.6"
+
+sudo: enabled
+
 install:
    - pip install slate3k
+   - pip install nltk
 script:
    - python day1part1.py
    - python test.py -v
